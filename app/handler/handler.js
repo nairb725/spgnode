@@ -37,6 +37,6 @@ export async function returnApi(request, response, callBack) {
         const results = await callBack(request);
         response.status(200).json(results);
     } catch (error) {
-        response.status(500).json({ error });
+        response.status(500).json({ error: "azhjevauzevguyazgevuyazvbuye" });
     }
 }
