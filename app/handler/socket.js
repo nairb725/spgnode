@@ -78,12 +78,12 @@ class SocketManager {
         for (let i = 0; i < listPlayer.rows.length; i++) {
             console.log(
                 "   | Send message to (" +
-                    this.socket.id +
+                    listPlayer.rows[i].id_player +
                     ") -> " +
                     message(listPlayer.rows[i])
             );
             this.io
-                .to(this.socket.id)
+                .to(listPlayer.rows[i].id_player)
                 .emit(action, message(listPlayer.rows[i]));
         }
     }
