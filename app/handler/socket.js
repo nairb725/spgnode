@@ -73,16 +73,18 @@ class SocketManager {
             return "";
         }
     ) {
-        const listPlayer = []; //getAllPlayerInRoomDB(this.socket.id);
+        const listPlayer = getAllPlayerInRoomDB(this.socket.id);
         console.log("|-- Emit all --|");
-        for (let i = 0; i < listPlayer.length; i++) {
+        for (let i = 0; i < listPlayer.rows.length; i++) {
             console.log(
                 "   | Send message to (" +
                     this.socket.id +
                     ") -> " +
-                    message(listPlayer[i])
+                    message(listPlayer.rows[i])
             );
-            this.io.to(this.socket.id).emit(action, message(listPlayer[i]));
+            this.io
+                .to(this.socket.id)
+                .emit(action, message(listPlayer.rows[i]));
         }
     }
 }
