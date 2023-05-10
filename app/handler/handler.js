@@ -5,8 +5,8 @@ export function createPassword() {
 }
 
 // This will give you a list of none same following numbers of minigames between two value
-const aze = countGames(5, 20, 10);
 export function countGames(min, max, count) {
+    console.log(min, max, count);
     const arrayGames = [];
     let previousNum = null;
     for (let i = 0; i < count; i++) {
