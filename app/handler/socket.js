@@ -74,6 +74,7 @@ class SocketManager {
         }
     ) {
         const listPlayer = getAllPlayerInRoomDB(this.socket.id);
+        console.log(listPlayer);
         console.log("|-- Emit all --|");
         for (let i = 0; i < listPlayer.rows.length; i++) {
             console.log(
