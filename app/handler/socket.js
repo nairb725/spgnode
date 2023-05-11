@@ -17,7 +17,6 @@ class SocketManager {
     async onDisconnected() {
         this.messageAll("player quit");
         let results = await leaveRoomDB(this.socket.id);
-        console.log(results);
         let isHost = results.rows[0].is_host;
         let idRoomToDelete = results.rows[0].id_room;
         console.log("- user disconnected: " + this.socket.id);
