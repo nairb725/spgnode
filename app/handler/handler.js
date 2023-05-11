@@ -29,7 +29,7 @@ export function countNull(list) {
     let count = 0;
     for (let index = 0; index < list.length; index++) {
         const element = list[index];
-        if (element.pv_left == undefined && element.nmb_minigame == undefined) {
+        if (!element.has_lost) {
             count++;
         }
     }
