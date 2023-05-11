@@ -22,7 +22,7 @@ class SocketManager {
         console.log("- user disconnected: " + this.socket.id);
         if (isHost) {
             console.log("- deleting all the players");
-            this.messageAll("delete room");
+            await this.messageAll("delete room");
             await kickAllDB(idRoomToDelete);
             deleteRoomDB(idRoomToDelete);
         }
