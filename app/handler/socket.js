@@ -43,7 +43,7 @@ class SocketManager {
     async endingGame(userScore) {
         const { nbLifeLeft, nbGamesPlayed } = userScore;
         const listIdPlayer = await getAllPlayerInRoomDB(this.socket.id);
-        const position = countNull(listIdPlayer);
+        const position = countNull(listIdPlayer.rows);
         setHasLostPlayer(this.socket.id);
 
         if (position == 2 && nbLifeLeft == 0) {
