@@ -2,7 +2,7 @@ import {
     deleteRoomDB,
     leaveRoomDB,
     kickAllDB,
-    postInfoPlayerDB,
+    setHasLostPlayer,
     getAllPlayerInRoomDB,
     joinRoomDB,
 } from "./queries.js";
