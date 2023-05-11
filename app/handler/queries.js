@@ -79,7 +79,7 @@ export function getInfoPlayerDB(id_room) {
 // This will post position/pv_left and nmb of minigame
 export function setHasLostPlayer(id_player) {
     return pool.query(
-        `UPGRADE player_room SET has_lost = $1 WHERE id_player = $2`,
+        `UPDATE player_room SET has_lost = $1 WHERE id_player = $2`,
         [true, id_player]
     );
 }
