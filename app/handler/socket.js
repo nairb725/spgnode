@@ -75,6 +75,7 @@ class SocketManager {
                 .to(listPlayer.rows[i].id_player)
                 .emit(action, message(listPlayer.rows[i]));
         }
+        console.log("-----------------------------------------");
     }
 }
 
