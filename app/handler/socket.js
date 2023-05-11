@@ -69,6 +69,8 @@ class SocketManager {
                 "   | Send message to (" +
                     listPlayer.rows[i].id_player +
                     ") -> " +
+                    action +
+                    ": " +
                     message(listPlayer.rows[i])
             );
             this.io
