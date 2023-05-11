@@ -53,7 +53,7 @@ export function leaveRoomDB(id_player) {
 export function joinRoomDB(id_player, id_room) {
     return pool.query(
         `INSERT INTO player_room (id_player, id_room, is_host) values
-    ($1, $2, (case when exists (select * from player_room WHERE id_room = $3) then false else true end))`,
+    ($1, $2, (case when exists (select * from player_room WHERE id_room = $3) then false else true end),  false)`,
         [id_player, id_room, id_room]
     );
 }
@@ -77,10 +77,10 @@ export function getInfoPlayerDB(id_room) {
 }
 
 // This will post position/pv_left and nmb of minigame
-export function postInfoPlayerDB(pv_left, nmb_minigame) {
+export function setHasLostPlayer() {
     return pool.query(
-        `INSERT INTO player_room (pv_left, nmb_minigame) VALUES ($1, $2) RETURNING id`,
-        [pv_left, nmb_minigame]
+        `INSERT INTO player_room (has_lost) VALUES ($1) RETURNING id`,
+        [true]
     );
 }
 
