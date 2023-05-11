@@ -51,7 +51,9 @@ class SocketManager {
         }
 
         //position == 1
-        this.io.to(this.socket.id).emit(action, { user_position: position });
+        this.io
+            .to(this.socket.id)
+            .emit("end game", { user_position: position });
     }
 
     async messageAll(
