@@ -43,7 +43,7 @@ export function updateRoomDB(name, id) {
 export function leaveRoomDB(id_player) {
     return pool.query(
         `DELETE FROM player_room as PR 
-        WHERE PR.id_player = $1 RETURNING is_host, id_room`,
+        WHERE PR.id_player = $1 RETURNING PR.is_host, PR.id_room`,
         [id_player]
     );
 }
