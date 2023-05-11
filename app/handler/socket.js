@@ -44,7 +44,7 @@ class SocketManager {
         const { nbLifeLeft, nbGamesPlayed } = userScore;
         const listIdPlayer = await getAllPlayerInRoomDB(this.socket.id);
         const position = countNull(listIdPlayer);
-        setHasLostPlayer();
+        setHasLostPlayer(this.socket.id);
 
         if (position == 2 && nbLifeLeft == 0) {
             this.messageAll("send last data");
