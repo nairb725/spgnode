@@ -5,6 +5,7 @@ import {
     setHasLostPlayer,
     getAllPlayerInRoomDB,
     joinRoomDB,
+    getPlayerRoomBySocketID,
 } from "./queries.js";
 import { countNull } from "./handler.js";
 
@@ -16,16 +17,17 @@ class SocketManager {
 
     async onDisconnected() {
         this.messageAll("player quit");
-        let results = await leaveRoomDB(this.socket.id);
-        console.log(results.rows);
-        let isHost = results.rows[0].is_host;
-        let idRoomToDelete = results.rows[0].id_room;
+        let player = await getPlayerRoomBySocketID(this.socket.id);
+        let isHost = player.rows[0].is_host;
+        let idRoomToDelete = player.rows[0].id_room;
         console.log("- user disconnected: " + this.socket.id);
         if (isHost) {
             console.log("- deleting all the players");
             await this.messageAll("delete room");
             await kickAllDB(idRoomToDelete);
             deleteRoomDB(idRoomToDelete);
+        } else {
+            await leaveRoomDB(this.socket.id);
         }
     }
 

@@ -98,3 +98,7 @@ export function getAllPlayerInRoomDB(id_player) {
 export function getRoomByPasswordDB(password) {
     return pool.query(`SELECT * FROM room WHERE password = $1`, [password]);
 }
+
+export function getPlayerRoomBySocketID(id) {
+    return pool.query(`SELECT * FROM player_room WHERE id_player = $1`, [id]);
+}
