@@ -27,6 +27,7 @@ export function countGames(min, max, count) {
 //counting remaining players in the game
 export function countNull(list) {
     let count = 0;
+    console.log(list);
     for (let index = 0; index < list.length; index++) {
         const element = list[index];
         if (!element.has_lost) {
