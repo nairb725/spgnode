@@ -23,8 +23,8 @@ class SocketManager {
         if (isHost) {
             console.log("- deleting all the players");
             this.messageAll("delete room");
+            await kickAllDB(idRoomToDelete);
             deleteRoomDB(idRoomToDelete);
-            kickAllDB(idRoomToDelete);
         }
     }
 
