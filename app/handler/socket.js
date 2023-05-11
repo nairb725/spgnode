@@ -21,10 +21,10 @@ class SocketManager {
         let idRoomToDelete = results.rows[0].id_room;
         console.log("- user disconnected: " + this.socket.id);
         if (isHost) {
-            kickAllDB(idRoomToDelete);
             console.log("- deleting all the players");
             this.messageAll("delete room");
             deleteRoomDB(idRoomToDelete);
+            kickAllDB(idRoomToDelete);
         }
     }
 
